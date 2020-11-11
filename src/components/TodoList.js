@@ -8,7 +8,7 @@ const TodoList = () => {
     });
 
     return (
-        <ul>
+        <ul className="todolist-wrapper">
             {todos.map(todo => <Todo key={todo.id} todo={todo} />)}
         </ul>
     )

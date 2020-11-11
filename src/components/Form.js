@@ -8,18 +8,24 @@ const Form = () => {
 
     const handleSubmit = (e => {
         e.preventDefault();
+        if(inputVal === '') return;
         dispatch(addTodo(inputVal));
         setInputVal('');
     });
 
     return (
         <form onSubmit={handleSubmit}>
+            <button
+                type="submit"
+                className="add-btn">
+            <span className="plus"></span>
+            </button>
             <input
                 type="text"
+                className="add-input"
                 value={inputVal}
                 onChange={e => setInputVal(e.target.value)}
             />
-            <button type="submit">ADD</button>
         </form>
     )
 }

@@ -1,15 +1,15 @@
 import React from 'react';
-import './App.css';
+import './assets/App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="wrapper">
         <Form />
         <TodoList />
-      </header>
+      </div>
     </div>
   );
 }

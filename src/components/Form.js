@@ -14,7 +14,10 @@ const Form = () => {
     });
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form
+            className="form-wrap"
+            onSubmit={handleSubmit}
+        >
             <button
                 type="submit"
                 className="add-btn">

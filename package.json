@@ -19,7 +19,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .js",
-    "lint:f": "eslint --fix src --ext .js"
+    "lint:f": "eslint --fix src --ext .js",
+    "lint:style": "stylelint src/assets/*.css",
+    "lint:style:f": "stylelint --fix src/assets/*.css"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +45,9 @@
     "cypress": "^5.6.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-standard": "^20.0.0"
   }
 }

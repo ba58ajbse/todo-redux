@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('addTodos', (...todoList) => {
+    const testid = id => `[data-testid="${id}"]`;
+    todoList.forEach((todo, i) => {
+    cy.get(testid('todo-add-input'))
+      .type(todo).should('have.value', todo)
+
+    cy.get(testid('todo-add-btn'))
+      .click()
+    
+    cy.get(testid(`todo-row-${i}`)).should('have.text', todo)
+  })
+})

@@ -20,8 +20,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .js",
     "lint:f": "eslint --fix src --ext .js",
-    "lint:style": "stylelint src --ext .css",
-    "lint:style:f": "stylelint --fix src --ext .css"
+    "lint:style": "stylelint src/assets/*.css",
+    "lint:style:f": "stylelint --fix src/assets/*.css"
   },
   "eslintConfig": {
     "extends": [

@@ -33,19 +33,19 @@ jobs:
   
   e2e_test:
     executor: node
-      steps:
-        - checkout
-        - restore_modules
-        - run:
-            name: install dependencies
-            command: yarn install
-        - run:
-            name: e2e_start
-            command: yarn start:ci
-        - run:
-            name: e2e_run
-            command: yarn cy:run
-        - save_modules
+    steps:
+      - checkout
+      - restore_modules
+      - run:
+          name: install dependencies
+          command: yarn install
+      - run:
+          name: e2e_start
+          command: yarn start:ci
+      - run:
+          name: e2e_run
+          command: yarn cy:run
+      - save_modules
 
 workflows:
   version: 2

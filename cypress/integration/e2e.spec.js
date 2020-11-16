@@ -14,7 +14,7 @@ describe('Form', () => {
 
       const todoId = 0;
       cy.get(testid(`todo-row-${todoId}`)).should('have.text', addTodo)
-      // cy.screenshot()
+      cy.screenshot()
     })
 
     it('フォームからTodoの追加, 完了', () => {
@@ -22,7 +22,7 @@ describe('Form', () => {
       //先頭の要素を完了にする
       cy.get(testid('todo-check-0')).click()
       cy.get(testid('todo-row-0')).should('have.class', 'done')
-      // cy.screenshot()
+      cy.screenshot()
     })
 
     it('フォームからTodoの追加, 削除', () => {
@@ -30,6 +30,6 @@ describe('Form', () => {
       //先頭の要素を削除する
       cy.get(testid('remove-btn-0')).click()
       cy.get(testid('todolist-wrap')).should('not.have.text', 'JavaScript')
-      // cy.screenshot()
+      cy.screenshot()
     })
 })

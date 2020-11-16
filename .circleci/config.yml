@@ -3,14 +3,33 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.26.0
 
-jobs:
-  build:
+executors:
+  node:
     docker:
       - image: circleci/node:12.18.3
+
+commands:
+  restore_modules:
+    steps:
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+  save_modules:
+    steps:
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+
+jobs:
+  build:
+    executor: node
     steps:
       - checkout
-      - run: yarn install
-      - run: yarn cy:info
+      - restore_modules
+      - run:
+          name: install dependencies
+          command: yarn install
+      - save_modules
 
 workflows:
   version: 2

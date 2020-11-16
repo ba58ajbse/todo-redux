@@ -21,7 +21,9 @@
     "lint": "eslint src --ext .js",
     "lint:f": "eslint --fix src --ext .js",
     "lint:style": "stylelint src/assets/*.css",
-    "lint:style:f": "stylelint --fix src/assets/*.css"
+    "lint:style:f": "stylelint --fix src/assets/*.css",
+    "cy:info": "cypress info",
+    "cy:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [

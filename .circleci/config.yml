@@ -32,12 +32,6 @@ jobs:
           command: yarn install
       - save_modules
 
-  cypress/run:
-    yarn: true
-    cache-key: 'yarn-packages-{{ arch }}-{{ checksum "yarn.lock" }}'
-    store_artifacts: true
-    start: npm start
-    wait-on: 'http://localhost:3000'
 #   e2e_test:
 #     executor: node
 #     steps:
@@ -59,12 +53,12 @@ workflows:
   setting_test:
     jobs:
       - build
-      - cypress/run
-          # yarn: true
-          # cache-key: 'yarn-packages-{{ arch }}-{{ checksum "yarn.lock" }}'
-          # store_artifacts: true
-          # start: npm start
-          # wait-on: 'http://localhost:3000'
+      - cypress/run:
+          yarn: true
+          cache-key: 'yarn-packages-{{ arch }}-{{ checksum "yarn.lock" }}'
+          store_artifacts: true
+          start: npm start
+          wait-on: 'http://localhost:3000'
 # workflows:
 #   version: 2
 #   setting_test:

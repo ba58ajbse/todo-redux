@@ -22,8 +22,10 @@
     "lint:f": "eslint --fix src --ext .js",
     "lint:style": "stylelint src/assets/*.css",
     "lint:style:f": "stylelint --fix src/assets/*.css",
+    "start:ci": "react-scripts start --no-clipboard",
     "cy:info": "cypress info",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [

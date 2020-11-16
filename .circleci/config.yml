@@ -30,6 +30,11 @@ jobs:
           name: install dependencies
           command: yarn install
       - save_modules
+      - run:
+          name: e2e
+          command:
+            - yarn start:ci
+            - yarn cy:run
 
 workflows:
   version: 2

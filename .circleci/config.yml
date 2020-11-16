@@ -3,53 +3,59 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.26.0
 
-executors:
-  node:
-    docker:
-      - image: circleci/node:12.18.3
-
-commands:
-  restore_modules:
-    steps:
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-  save_modules:
-    steps:
-      - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
-
-jobs:
-  build:
-    executor: node
-    steps:
-      - checkout
-      - restore_modules
-      - run:
-          name: install dependencies
-          command: yarn install
-      - save_modules
-  
-  e2e_test:
-    executor: node
-    steps:
-      - checkout
-      - restore_modules
-      - run:
-          name: install dependencies
-          command: yarn install
-      - run:
-          name: e2e_start
-          command: yarn start:ci
-      - run:
-          name: e2e_run
-          command: yarn cy:run
-      - save_modules
-
 workflows:
-  version: 2
-  setting_test:
+  build:
     jobs:
-      - build
-      - e2e_test
+      - cypress/run:
+          yarn: true
+
+# executors:
+#   node:
+#     docker:
+#       - image: circleci/node:12.18.3
+
+# commands:
+#   restore_modules:
+#     steps:
+#       - restore_cache:
+#           key: dependency-cache-{{ checksum "yarn.lock" }}
+#   save_modules:
+#     steps:
+#       - save_cache:
+#           key: dependency-cache-{{ checksum "yarn.lock" }}
+#           paths:
+#             - ./node_modules
+
+# jobs:
+#   build:
+#     executor: node
+#     steps:
+#       - checkout
+#       - restore_modules
+#       - run:
+#           name: install dependencies
+#           command: yarn install
+#       - save_modules
+  
+#   e2e_test:
+#     executor: node
+#     steps:
+#       - checkout
+#       - restore_modules
+#       - run:
+#           name: install dependencies
+#           command: yarn install
+#       - run:
+#           name: e2e_start
+#           command: yarn start:ci
+#       - run:
+#           name: e2e_run
+#           command: yarn cy:run
+#       - save_modules
+
+# workflows:
+#   version: 2
+#   setting_test:
+#     jobs:
+#       - build
+#       - e2e_test

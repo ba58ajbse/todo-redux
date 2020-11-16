@@ -13,6 +13,3 @@ workflows:
   setting_test:
     jobs:
       - build:
-          filters:
-            branches:
-              only: setting-circleci

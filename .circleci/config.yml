@@ -3,7 +3,6 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.26.0
 
-
 executors:
   node:
     docker:
@@ -32,22 +31,6 @@ jobs:
           command: yarn install
       - save_modules
 
-#   e2e_test:
-#     executor: node
-#     steps:
-#       - checkout
-#       - restore_modules
-#       - run:
-#           name: install dependencies
-#           command: yarn install
-#       - run:
-#           name: e2e_start
-#           command: yarn start:ci
-#       - run:
-#           name: e2e_run
-#           command: yarn cy:run
-#       - save_modules
-
 workflows:
   version: 2
   setting_test:
@@ -59,9 +42,3 @@ workflows:
           store_artifacts: true
           start: npm start
           wait-on: 'http://localhost:3000'
-# workflows:
-#   version: 2
-#   setting_test:
-#     jobs:
-#       - build
-#       - e2e_test

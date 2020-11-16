@@ -15,12 +15,13 @@ const Form = () => {
 
   return (
     <form className="form-wrap" onSubmit={handleSubmit}>
-      <button type="submit" className="add-btn">
+      <button type="submit" className="add-btn" data-testid="todo-add-btn">
         <span className="plus"></span>
       </button>
       <input
         type="text"
         className="add-input"
+        data-testid="todo-add-input"
         value={inputVal}
         onChange={(e) => setInputVal(e.target.value)}
       />

@@ -9,6 +9,7 @@ workflows:
       - cypress/run:
           yarn: true
           cache-key: 'yarn-packages-{{ arch }}-{{ checksum "yarn.lock" }}'
+          store_artifacts: true
           start: npm start
           wait-on: 'http://localhost:3000'
 
